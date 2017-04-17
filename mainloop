@@ -1,0 +1,71 @@
+
+//Yabadabbadoo notification
+########DO NOT RENAME THIS FILE!########
+//Yabadabbadoo needs it to function.
+
+//Main Message Loop
+dim msg$(1)
+while(not leavingLoop)
+	nCommands = token(message$, msg$(), "|")
+	for everyCommand = 1 to nCommands
+		if(DEBUG and msg$(everyCommand)<>"") print msg$(everyCommand)
+		switch(msg$(everyCommand))
+			case "_QuitRequested":
+			case "MainWindow:_QuitRequested":
+				leavingLoop = true
+				break
+			case "readablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a+r")
+				break
+			case "writablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a+w")
+				break
+			case "executablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a+x")
+				break
+			case "unreadablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a-r")
+				break
+			case "unwritablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a-w")
+				break
+			case "unexecutablebutton"
+				if loadedfile$ = "" break
+				ChangeMode("chmod a-x")
+				break
+			case "recursivecheck:OFF"
+				RecurseDirectory =0
+				break
+			case "recursivecheck:ON"
+				RecurseDirectory =1
+				break
+			case "touchbutton"
+				if loadedfile$ = "" break
+				if (RecurseDirectory) then
+					system("cd '" + loadedfile$ + "';touch *")
+					system("notify  --title Setpermisions --timeout 5 '" + timewarningtext$ +"' &")
+				endif
+				system("touch '" + loadedfile$ + "'")
+				break
+			case "mimebutton"
+				if loadedfile$ = "" break
+				if FileorDir(loadedfile$) system("notify  --title Setpermisions --timeout 5 '" + mimewarningtext$ +"' &")
+				system("mimeset -F '"+ loadedfile$ + "'")
+			default:
+				break
+		end switch
+		if left$(msg$(everyCommand),18) ="dropzone:_Dropped:" 	then 
+			loadedfile$ = ExamineFile$((mid$(msg$(everyCommand),19)))
+		endif
+	next everyCommand
+wend
+
+CloseWindow()
+
+end
+

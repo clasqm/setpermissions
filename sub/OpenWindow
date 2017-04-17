@@ -1,0 +1,22 @@
+sub OpenWindow()
+	//Setup the main window here
+	local winheight, startcheckbox
+	if winwidth = 0 winwidth=500 // default in case this is missing from a locale file.
+	winheight =200
+	//If the layout engine changes and the button text looks squashed, 
+	//winwidth should be the only variable you need to change.
+	//it is the last line in the localization file
+	//
+	//winx and winy are global variables - initialised in the prologue - can be used to remember window positioning in a later version. 
+	window open winx,winy to (winx + winwidth), (winy+winheight), "MainWindow", "SetPermissions"
+		window set "MainWindow", "flags","Not-Resizable"
+		window set "MainWindow", "flags","Not-Zoomable"
+		window set "MainWindow", "flags", "Accept-First-Click"
+		draw set "DejaVu Sans, Book, 12", "MainWindow"
+	view 0, 0 to winwidth,50, "dropzone", "MainWindow"
+		DropzoneIntroText()
+		DropzoneBorder(): 
+		view dropzone "dropzone"
+	MakeButtons()
+end sub
+

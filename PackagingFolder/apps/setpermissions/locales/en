@@ -1,0 +1,16 @@
+DROP YOUR FILE OR FOLDER HERE.
+Make readable
+Make writable
+Make executable
+Make unreadable
+Make unwritable
+Make unexecutable
+Set modification date to NOW
+Force MIME recognition
+Recurse into folder(s)
+Open file  when done
+The file you dropped is a link. Please be careful when setting attributes on links. The result may not be what you want
+Setting modification dates on a directory will only recurse ONE level as a safety measure. See the Setpermissions documentation.
+Setting of MIME types in a directory ALWAYS does a full recurse, regardless of the checkbox setting. See the Setpermissions documentation.
+440
+

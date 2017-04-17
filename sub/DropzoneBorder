@@ -1,0 +1,8 @@
+sub DropzoneBorder()
+	local viewwidth
+	viewwidth = view get "dropzone", "width"
+	draw set true, "HighSolidFill"
+	draw rect 1,1 to viewwidth-1 ,49, "dropzone"
+	draw rect 3,3 to viewwidth - 3,47, "dropzone"
+end sub
+

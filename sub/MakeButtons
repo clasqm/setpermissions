@@ -1,0 +1,32 @@
+sub MakeButtons()
+	local rowx, originalrowx, coly, buttonwidth,buttonheight, interval, startcheckbox
+	interval = 5
+	rowx= interval: originalrowx= rowx
+	coly = 55
+	buttonwidth =  int((window get "MainWindow", "width" - (interval *4)) /3)
+	buttonheight = 35
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "readablebutton", makereadabletext$, "MainWindow"
+		rowx = rowx + buttonwidth + interval
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "writablebutton", makewritabletext$, "MainWindow"
+		rowx = rowx + buttonwidth + interval
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "executablebutton", makeexecutabletext$, "MainWindow"
+	coly = coly + buttonheight + interval
+	rowx = originalrowx
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "unreadablebutton", makeunreadabletext$, "MainWindow"
+		rowx = rowx + buttonwidth + interval
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "unwritablebutton", makeunwritabletext$, "MainWindow"
+		rowx = rowx + buttonwidth + interval
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "unexecutablebutton", makeunexecutabletext$, "MainWindow"
+	coly = coly + buttonheight + interval
+	rowx = originalrowx
+	buttonwidth = int((window get "MainWindow", "width" /2) - (interval * 1.5))
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "touchbutton", setmodificationdatetext$, "MainWindow"
+		rowx = rowx + buttonwidth + interval
+		button rowx,coly TO rowx+buttonwidth,coly + buttonheight, "mimebutton", forcemimetext$, "MainWindow"
+	startcheckbox = (coly + buttonheight + 5) 
+	checkbox interval,startcheckbox, "recursivecheck", recursetext$, false, "MainWindow"
+	option set "recursivecheck", "enabled", false
+	//checkbox int((window get "MainWindow", "width" /2) +interval),startcheckbox, "openfilecheck", openfiletext$, false, "MainWindow"
+	//maybe in next version, OK?
+end sub
+

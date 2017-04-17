@@ -1,0 +1,15 @@
+sub ExamineFile$(thefile$)
+	if FileorLink(thefile$) Alert linkwarningtext$,"OK","warning"
+	if FileorDir(thefile$) then
+		option set "recursivecheck", "enabled", true
+		checkbox set "recursivecheck", true
+		RecurseDirectory = 1
+	else
+		option set "recursivecheck", "enabled", false
+		checkbox set "recursivecheck", false
+		RecurseDirectory = 0
+	endif
+	ChWindowTab(thefile$)
+	return thefile$
+end sub
+

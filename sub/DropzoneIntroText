@@ -1,0 +1,7 @@
+sub DropzoneIntroText()
+	local viewwidth
+	viewwidth = view get "dropzone", "width"
+	text 5, 10 to viewwidth-5, 20, "introtext", dropfileheretext$, "dropzone"
+	text set "introtext", "align-center"
+end sub
+

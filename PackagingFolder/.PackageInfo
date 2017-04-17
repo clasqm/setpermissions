@@ -1,0 +1,35 @@
+name				setpermissions
+version				0.1-2
+architecture			x86_gcc2
+
+summary			"File permission manipulation utility"
+Description			"Setpermissions is a little utility to adjust the filepermissions, modification type and MIME type of your files. It replicates what you do when you right-click on a file in Tracker, select Get Info and click on the little arrow at the bottom, but setpermissions
+
+* takes fewer mouseclicks
+* recurses into folders
+* accepts files and folders via drag-and-drop
+
+Menu position: Applications | System & Utilities
+"
+
+
+packager			"Michel Clasquin-Johnson <clasqm@gmail.com>"
+vendor				"clasqm"
+copyrights			"Michel Clasquin-Johnson <clasqm@gmail.com>"
+licenses				"Public Domain"
+provides {
+					setpermissions = 0.1-2
+					app:setpermissions
+					cmd:setpermissions
+}
+requires {
+					yab>=1.7.5.2
+					haiku>=r1~alpha4_pm_hrev49977-1
+					cmd:chmod
+					cmd:touch
+#					cmd:mimeset
+#					cmd:notify
+					cmd:file
+					cmd:ls
+					cmd:stat
+}

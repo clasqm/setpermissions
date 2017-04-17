@@ -1,0 +1,7 @@
+sub ChangeMode(dothis$)
+	if (RecurseDirectory) dothis$ = dothis$ + chmodfoldervar$
+	dothis$ = dothis$ + " '" + loadedfile$  + "'"
+	system(dothis$)
+	ChWindowTab(loadedfile$)
+end sub
+

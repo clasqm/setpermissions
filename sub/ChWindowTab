@@ -1,0 +1,13 @@
+sub ChWindowTab(thefile$)
+	local permissions$, accessdate$,filemimetype$
+	permissions$ = mid$(system$("ls -oLd '" + thefile$ + "'"), 2,9)
+	accessdate$ = left$(system$("stat --format=%y '" + thefile$ + "'"),10)
+	filemimetype$= system$("file -ib '" + thefile$ + "'")
+	draw flush "dropzone"
+	DropzoneBorder()
+	draw text 6,40, permissions$, "dropzone"
+	draw text 70, 40, accessdate$, "dropzone"
+	draw text 150,40, filemimetype$, "dropzone"
+	window set "MainWindow", "title", thefile$  
+end sub
+

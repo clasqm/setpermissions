@@ -1,0 +1,92 @@
+#!/bin/env yab
+################################
+############# Prologue #############
+################################
+
+//Yabadabbadoo notification
+########DO NOT RENAME THIS FILE!########
+//Yabadabbadoo needs it to function.
+
+import libclasqm_main
+ 
+//*************************
+//*****Global Variables****
+//*************************
+ 
+## Technically, yab does not require you to declare global variables,
+##It just is a really, really good idea to do it anyway.
+ProgramName$ = "setpermissions"
+// set DEBUG = 1 to print out all messages on the console
+DEBUG = 0
+//change this to DEBUG = 0 when you are ready to bind the program for distribution
+winx = 100
+winy = 100
+//placeholders for a proper positioning save and retrieval system
+loadedfile$ = ""
+chmodfoldervar$ = " -R "
+RecurseDirectory=0
+
+if peek("argument") then  //for localization testing only
+	locale$ = left$(peek$("argument"), 2)
+	langdir$="/boot/home/Desktop"
+else
+	langdir$ = WhereAmI$() + "/locales"
+	locale$ = left$(StripLFoffSysCmd$(system$("locale -l")), 2)
+endif
+if locale$ = "" locale$ = "en" //failsafe
+
+if not FileExists(langdir$ + "/" + locale$) then
+	locale$ = "en"
+	langdir$ = WhereAmI$() + "/locales"
+endif
+close #1
+
+open langdir$ + "/" + locale$ for reading as #1
+line input #1 dropfileheretext$
+line input #1 makereadabletext$
+line input #1 makewritabletext$
+line input #1 makeexecutabletext$
+line input #1 makeunreadabletext$
+line input #1 makeunwritabletext$
+line input #1 makeunexecutabletext$
+line input #1 setmodificationdatetext$
+line input #1 forcemimetext$
+line input #1 recursetext$
+line input #1 openfiletext$  //not used in this version
+line input #1 linkwarningtext$
+line input #1 timewarningtext$
+line input #1 mimewarningtext$
+line input #1 winwidth
+close #1
+
+if (DEBUG) then
+	print langdir$
+	print locale$
+	print dropfileheretext$
+	print makereadabletext$
+	print makewritabletext$
+	print makeexecutabletext$
+	print makeunreadabletext$
+	print makeunwritabletext$
+	print makeunexecutabletext$
+	print setmodificationdatetext$
+	print forcemimetext$
+	print recursetext$
+	print openfiletext$
+	print linkwarningtext$
+	print timewarningtext$
+	print mimewarningtext$
+	print winwidth
+endif
+
+##########################
+######Preliminary Commands#####
+##########################
+
+## Commands to run before the Main Loop come here.
+## e.g. setting up a window with a menu.
+ 
+OpenWindow()
+ 
+#######End of Prologue#######
+

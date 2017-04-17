@@ -1,0 +1,15 @@
+Setpermissions can be localized to any language. If you are familiar with computer terminology in a language and would like to help out, this should not take more than five minutes of your time. 
+
+In the setpermissions installation folder (most likely /boot/system/apps/setpermissions/ you will find the folder "locale", in which you will find the file "en". drag a copy of it it to your Desktop.
+
+Ope a Terminal and type "locale -l" That will give you your locale code. YOU ONLY NEED THE FIRST TWO LETTERS. Sorry, I cannot accommodate dialects like Brazillian Portuguese vs Portuguese Portuguese. So when you translate, try to use terms common to most dialects. If your language is Portuguese, your code is "pt". Rename the "en" file on your desktop to your code, for example, call it "pt". Lowercase, please.
+
+Translate the first 14 lines. No word-wrapping and in their exact order, please. If your language writes right-to-left, do that. Try to keep it short. I'll leave punctuation to your discretion. You can leave the number on line 15 for now. Save the file.
+
+Still in Terminal, type "setpermissions <your code>", for example, "setpermisions pt" to force setpermissions to use the new locale and to look for the localization file on the Desktop.
+
+You should now be able to see if all your text fits nicely on to the buttons. If it looks strange, exit setpermissions and adjust the number on line 15 to make the entire interface bigger or smaller. German will probably need to be bigger, Chinese probably smaller. Reload the app from Terminal again with the locale code and see the effect. If you go too small, you will no longer be able to see the file details in the dropzone, so please test it with a file or two.
+
+The instruction in line 11 is not used in this version, but will be in an update.
+
+Thank you! Email the file (or the contents of the file) to me at clasqm@gmail.com and it will be included in the next update and you will be credited in the .PackageInfo and documentation.
