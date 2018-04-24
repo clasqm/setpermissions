@@ -3,7 +3,11 @@ by Michel Clasquin-Johnson
 
 Written in yab using the Yabadabbadoo IDE
 
-Setpermissions is a little utility to adjust the filepermissions, modification type and MIME type of your files. It replicates what you do when you right-click on a file in Tracker, select "Get Info" and click on the little arrow at the bottom, but setpermissions
+Setpermissions is a little utility to adjust the filepermissions, modification type and MIME type of your files. 
+
+![SetPermissions](setpermissions.png)
+
+It replicates what you do when you right-click on a file in Tracker, select "Get Info" and click on the little arrow at the bottom, but setpermissions
 
 * takes fewer mouseclicks
 * recurses into folders (but see below)
