@@ -46,3 +46,8 @@ TODO
 LICENSE
 
 This program is hereby placed into the Public Domain, with the following stipulations: The author, Michel Clasquin-Johnson, accepts no liability if you use this program to make your system unusable, unstable or insecure. The program manipulates important file attributes. If you don't know what those attributes are, please educate yourself before using this program.
+
+Get it here: https://github.com/clasqm/setpermissions
+
+Binaries: https://sourceforge.net/p/setpermissions-for-haiku/
+
